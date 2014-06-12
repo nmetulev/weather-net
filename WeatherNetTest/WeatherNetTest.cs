@@ -20,9 +20,16 @@ namespace WeatherNetTest
 
 
             //Exist
-            result = Current.GetByCityName("Dublin", "Ireland");
+            result = Current.GetByCityName("Dublin", "Ireland", "se", "metric");
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Item);
+
+
+            result = Current.GetByCityName("Dublin", "Ireland", "nl", "imperial");
+            Assert.IsTrue(result.Success);
+            Assert.IsNotNull(result.Item);
+
+
         }
 
         [TestMethod]
@@ -51,6 +58,10 @@ namespace WeatherNetTest
             result = Current.GetByCoordinates(53.363665, -6.255541);
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Item);
+
+            result = Current.GetByCoordinates(53.363665, -6.255541, "nl", "imperial");
+            Assert.IsTrue(result.Success);
+            Assert.IsNotNull(result.Item);
         }
 
 
@@ -64,6 +75,12 @@ namespace WeatherNetTest
 
             //Exist
             result = Forecast.GetByCityName("Dublin", "Ireland");
+            Assert.IsTrue(result.Success);
+            Assert.IsNotNull(result.Items);
+            Assert.IsTrue(result.Items.Count > 0);
+            Assert.IsNotNull(result.Items[0]);
+
+            result = Forecast.GetByCityName("Dublin", "Ireland", "de", "metric");
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Items);
             Assert.IsTrue(result.Items.Count > 0);
@@ -84,6 +101,12 @@ namespace WeatherNetTest
             Assert.IsNotNull(result.Items);
             Assert.IsTrue(result.Items.Count > 0);
             Assert.IsNotNull(result.Items[0]);
+
+            result = Forecast.GetByCityId(2964574, "de", "metric");
+            Assert.IsTrue(result.Success);
+            Assert.IsNotNull(result.Items);
+            Assert.IsTrue(result.Items.Count > 0);
+            Assert.IsNotNull(result.Items[0]);
         }
 
         [TestMethod]
@@ -95,7 +118,7 @@ namespace WeatherNetTest
             Assert.IsNull(result.Items);
 
             //Exist
-            result = Forecast.GetByCoordinates(53.363665, -6.255541);
+            result = Forecast.GetByCoordinates(53.363665, -6.255541, "se", "imperial");
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Items);
             Assert.IsTrue(result.Items.Count > 0);
@@ -144,7 +167,7 @@ namespace WeatherNetTest
             Assert.IsNull(result.Items);
 
             //Exist
-            result = Daily.GetByCoordinates(53.363665, -6.255541, 14);
+            result = Daily.GetByCoordinates(53.363665, -6.255541, 14, "se", "metric");
             Assert.IsTrue(result.Success);
             Assert.IsNotNull(result.Items);
             Assert.IsTrue(result.Items.Count > 0);
