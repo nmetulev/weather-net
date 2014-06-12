@@ -46,8 +46,8 @@ namespace WeatherNet
         {
             try
             {
-                if (0 > days && days > 15)
-                    return new Result<WeatherDaily>(null, false, "Days must be a value between 1 and 15.");
+                if (0 > days || days > 16)
+                    return new Result<WeatherDaily>(null, false, "Days must be a value between 1 and 16.");
                 if (0 > id)
                     return new Result<WeatherDaily>(null, false, "City Id must be a positive number.");
                 var response = ApiClient.GetResponse("/forecast/daily?id=" + id + "&cnt=" + days + "&lang=" + language + "&units=" + units);
@@ -100,8 +100,8 @@ namespace WeatherNet
             {
                 if (String.IsNullOrWhiteSpace(city) || String.IsNullOrEmpty(country))
                     return new Result<WeatherDaily>(null, false, "City and/or Country cannot be empty.");
-                if (0 > days && days > 15)
-                    return new Result<WeatherDaily>(null, false, "Days must be a value between 1 and 15.");
+                if (0 > days || days > 16)
+                    return new Result<WeatherDaily>(null, false, "Days must be a value between 1 and 16.");
 
                 var response =
                     ApiClient.GetResponse("/forecast/daily?q=" + city + "," + country + "&cnt=" + days + "&lang=" + language + "&units=" + units);
@@ -149,8 +149,8 @@ namespace WeatherNet
         {
             try
             {
-                if (0 > days && days > 15)
-                    return new Result<WeatherDaily>(null, false, "Days must be a value between 1 and 15.");
+                if (0 > days || days > 16)
+                    return new Result<WeatherDaily>(null, false, "Days must be a value between 1 and 16.");
                 var response =
                     ApiClient.GetResponse("/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=" + days + "&lang=" + language + "&units=" + units);
                 return Deserializer.GetWeatherDaily(response);
