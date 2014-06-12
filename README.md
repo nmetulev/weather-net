@@ -7,7 +7,7 @@ Types of weather data supported:
 
 - Current Weather.
 - 3 hours Forecast (available for 5 days)
-- Daily Forecast (available for 14 days)
+- Daily Forecast (available for 16 days)
 
 
 ####Usage
