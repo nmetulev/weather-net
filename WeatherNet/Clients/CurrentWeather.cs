@@ -7,28 +7,31 @@ using WeatherNet.Util.Data;
 
 #endregion
 
-namespace WeatherNet
+namespace WeatherNet.Clients
 {
-    public class Current
+    public class CurrentWeather
     {
+
+     
+
         /// <summary>
         ///     Get the current weather of a specific city by indicating the city and country names.
         /// </summary>
         /// <param name="city">Name of the city.</param>
         /// <param name="country">Country of the city.</param>
         /// <returns> The weather information.</returns>
-        public static SingleResult<WeatherCurrent> GetByCityName(String city, String country)
+        public SingleResult<CurrentWeatherResult> GetByCityName(String city, String country)
         {
             try
             {
                 if (String.IsNullOrWhiteSpace(city) || String.IsNullOrEmpty(country))
-                    return new SingleResult<WeatherCurrent>(null, false, "City and/or Country cannot be empty.");
+                    return new SingleResult<CurrentWeatherResult>(null, false, "City and/or Country cannot be empty.");
                 var response = ApiClient.GetResponse("/weather?q=" + city + "," + country);
                 return Deserializer.GetWeatherCurrent(response);
             }
             catch (Exception ex)
             {
-                return new SingleResult<WeatherCurrent> {Item = null, Success = false, Message = ex.Message};
+                return new SingleResult<CurrentWeatherResult> {Item = null, Success = false, Message = ex.Message};
             }
         }
 
@@ -40,18 +43,18 @@ namespace WeatherNet
         /// <param name="language">The language of the information returned (example: English - en, Russian - ru, Italian - it, Spanish - sp, Ukrainian - ua, German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - se, Chinese Traditional - zh_tw, Chinese Simplified - zh_cn, Turkish - tr , Czech - cz, Galician - gl, Vietnamese - vi, Arabic - ar, Macedonian - mk, Slovak - sk).</param>
         /// <param name="units">The units of the date (metric or imperial).</param>
         /// <returns> The weather information.</returns>
-        public static SingleResult<WeatherCurrent> GetByCityName(String city, String country, String language, String units)
+        public static SingleResult<CurrentWeatherResult> GetByCityName(String city, String country, String language, String units)
         {
             try
             {
                 if (String.IsNullOrWhiteSpace(city) || String.IsNullOrEmpty(country))
-                    return new SingleResult<WeatherCurrent>(null, false, "City and/or Country cannot be empty.");
+                    return new SingleResult<CurrentWeatherResult>(null, false, "City and/or Country cannot be empty.");
                 var response = ApiClient.GetResponse("/weather?q=" + city + "," + country + "&lang=" + language + "&units=" + units);
                 return Deserializer.GetWeatherCurrent(response);
             }
             catch (Exception ex)
             {
-                return new SingleResult<WeatherCurrent> { Item = null, Success = false, Message = ex.Message };
+                return new SingleResult<CurrentWeatherResult> { Item = null, Success = false, Message = ex.Message };
             }
         }
 
@@ -61,7 +64,7 @@ namespace WeatherNet
         /// <param name="lat">Latitud of the city.</param>
         /// <param name="lon">Longitude of the city.</param>
         /// <returns> The weather information.</returns>
-        public static SingleResult<WeatherCurrent> GetByCoordinates(double lat, double lon)
+        public static SingleResult<CurrentWeatherResult> GetByCoordinates(double lat, double lon)
         {
             try
             {
@@ -70,7 +73,7 @@ namespace WeatherNet
             }
             catch (Exception ex)
             {
-                return new SingleResult<WeatherCurrent> {Item = null, Success = false, Message = ex.Message};
+                return new SingleResult<CurrentWeatherResult> {Item = null, Success = false, Message = ex.Message};
             }
         }
 
@@ -82,7 +85,7 @@ namespace WeatherNet
         /// <param name="language">The language of the information returned (example: English - en, Russian - ru, Italian - it, Spanish - sp, Ukrainian - ua, German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - se, Chinese Traditional - zh_tw, Chinese Simplified - zh_cn, Turkish - tr , Czech - cz, Galician - gl, Vietnamese - vi, Arabic - ar, Macedonian - mk, Slovak - sk).</param>
         /// <param name="units">The units of the date (metric or imperial).</param>
         /// <returns> The weather information.</returns>
-        public static SingleResult<WeatherCurrent> GetByCoordinates(double lat, double lon, String language, String units)
+        public static SingleResult<CurrentWeatherResult> GetByCoordinates(double lat, double lon, String language, String units)
         {
             try
             {
@@ -91,7 +94,7 @@ namespace WeatherNet
             }
             catch (Exception ex)
             {
-                return new SingleResult<WeatherCurrent> { Item = null, Success = false, Message = ex.Message };
+                return new SingleResult<CurrentWeatherResult> { Item = null, Success = false, Message = ex.Message };
             }
         }
 
@@ -100,18 +103,18 @@ namespace WeatherNet
         /// </summary>
         /// <param name="id">City 'OpenwWeatherMap' identifier.</param>
         /// <returns> The weather information.</returns>
-        public static SingleResult<WeatherCurrent> GetByCityId(int id)
+        public static SingleResult<CurrentWeatherResult> GetByCityId(int id)
         {
             try
             {
                 if (0 > id)
-                    return new SingleResult<WeatherCurrent>(null, false, "City Id must be a positive number.");
+                    return new SingleResult<CurrentWeatherResult>(null, false, "City Id must be a positive number.");
                 var o = ApiClient.GetResponse("/weather?id=" + id);
                 return Deserializer.GetWeatherCurrent(o);
             }
             catch (Exception ex)
             {
-                return new SingleResult<WeatherCurrent> {Item = null, Success = false, Message = ex.Message};
+                return new SingleResult<CurrentWeatherResult> {Item = null, Success = false, Message = ex.Message};
             }
         }
 
@@ -122,18 +125,18 @@ namespace WeatherNet
         /// <param name="language">The language of the information returned (example: English - en, Russian - ru, Italian - it, Spanish - sp, Ukrainian - ua, German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - se, Chinese Traditional - zh_tw, Chinese Simplified - zh_cn, Turkish - tr , Czech - cz, Galician - gl, Vietnamese - vi, Arabic - ar, Macedonian - mk, Slovak - sk).</param>
         /// <param name="units">The units of the date (metric or imperial).</param>
         /// <returns> The weather information.</returns>
-        public static SingleResult<WeatherCurrent> GetByCityId(int id, String language, String units)
+        public static SingleResult<CurrentWeatherResult> GetByCityId(int id, String language, String units)
         {
             try
             {
                 if (0 > id)
-                    return new SingleResult<WeatherCurrent>(null, false, "City Id must be a positive number.");
+                    return new SingleResult<CurrentWeatherResult>(null, false, "City Id must be a positive number.");
                 var o = ApiClient.GetResponse("/weather?id=" + id + "&lang=" + language + "&units=" + units);
                 return Deserializer.GetWeatherCurrent(o);
             }
             catch (Exception ex)
             {
-                return new SingleResult<WeatherCurrent> { Item = null, Success = false, Message = ex.Message };
+                return new SingleResult<CurrentWeatherResult> { Item = null, Success = false, Message = ex.Message };
             }
         }
     }

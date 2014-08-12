@@ -8,9 +8,9 @@ using WeatherNet.Model;
 namespace WeatherNet.Model
 {
     /// <summary>
-    ///     WeatherDaily forecast result type.
+    ///     SixteenDaysForecastResult forecast result type.
     /// </summary>
-    public class WeatherDaily : Weather
+    public class SixteenDaysForecastResult : WeatherResult
     {
         /// <summary>
         ///     Temperature in the morning in Kelvin.

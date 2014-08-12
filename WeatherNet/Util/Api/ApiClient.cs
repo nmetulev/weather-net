@@ -10,16 +10,24 @@ using Newtonsoft.Json.Linq;
 
 namespace WeatherNet.Util.Api
 {
-    internal class ApiClient
+    public static class ApiClient
     {
-        public static string API_URL = "http://api.openweathermap.org/data/2.5";
-
-        public static JObject GetResponse(String url)
+        
+        
+        public static JObject GetResponse(String queryString)
         {
             using (var client = new WebClient())
             {
-                Trace.WriteLine("<HTTP - GET - " + url + " >");
-                var response = client.DownloadString(API_URL + url);
+                var apiKey = ClientSettings.ApiKey;
+                var apiUrl = ClientSettings.ApiUrl;
+                Trace.WriteLine("<HTTP - GET - " + queryString + " >");
+                string url;
+                if (!string.IsNullOrEmpty(apiKey))
+                    url = apiUrl + queryString + "&APPID=" + apiKey;
+                else
+                    url = apiUrl + queryString;
+
+                var response = client.DownloadString(url);
                 var parsedResponse = JObject.Parse(response);
                 return parsedResponse;
             }

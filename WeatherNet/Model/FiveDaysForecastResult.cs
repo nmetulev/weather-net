@@ -8,9 +8,9 @@ using WeatherNet.Model;
 namespace WeatherNet.Model
 {
     /// <summary>
-    ///     WeatherForecast result type.
+    ///     FiveDaysForecastResult result type.
     /// </summary>
-    public class WeatherForecast : Weather
+    public class FiveDaysForecastResult : WeatherResult
     {
         /// <summary>
         ///     Time of data receiving in unixtime GMT.

@@ -50,17 +50,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="WeatherNetTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WeatherNet\WeatherNet.csproj">
-      <Project>{A7A99412-5F99-4B4F-AFCF-90AA4B1EEB90}</Project>
-      <Name>WeatherNet</Name>
-    </ProjectReference>
+    <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherNet\WeatherNet.csproj">
+      <Project>{a7a99412-5f99-4b4f-afcf-90aa4b1eeb90}</Project>
+      <Name>WeatherNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -12,13 +12,13 @@ namespace WeatherNet.Util.Data
 {
     internal class Deserializer
     {
-        public static SingleResult<WeatherCurrent> GetWeatherCurrent(JObject response)
+        public static SingleResult<CurrentWeatherResult> GetWeatherCurrent(JObject response)
         {
             var error = GetServerErrorFromResponse(response);
             if (!String.IsNullOrEmpty(error))
-                return new SingleResult<WeatherCurrent>(null, false, error);
+                return new SingleResult<CurrentWeatherResult>(null, false, error);
 
-            var weatherCurrent = new WeatherCurrent();
+            var weatherCurrent = new CurrentWeatherResult();
 
             if (response["sys"] != null)
             {
@@ -49,22 +49,22 @@ namespace WeatherNet.Util.Data
             weatherCurrent.City = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(response["name"])));
             weatherCurrent.CityId = Convert.ToInt32(response["id"]);
 
-            return new SingleResult<WeatherCurrent>(weatherCurrent, true, TimeHelper.MessageSuccess);
+            return new SingleResult<CurrentWeatherResult>(weatherCurrent, true, TimeHelper.MessageSuccess);
         }
 
-        public static Result<WeatherForecast> GetWeatherForecast(JObject response)
+        public static Result<FiveDaysForecastResult> GetWeatherForecast(JObject response)
         {
             var error = GetServerErrorFromResponse(response);
             if (!String.IsNullOrEmpty(error))
-                return new Result<WeatherForecast>(null, false, error);
+                return new Result<FiveDaysForecastResult>(null, false, error);
 
 
-            var weatherForecasts = new List<WeatherForecast>();
+            var weatherForecasts = new List<FiveDaysForecastResult>();
 
             var responseItems = JArray.Parse(response["list"].ToString());
             foreach (var item in responseItems)
             {
-                var weatherForecast = new WeatherForecast();
+                var weatherForecast = new FiveDaysForecastResult();
                 if (response["city"] != null)
                 {
                     weatherForecast.City = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(response["city"]["name"])));
@@ -102,21 +102,21 @@ namespace WeatherNet.Util.Data
                 weatherForecasts.Add(weatherForecast);
             }
 
-            return new Result<WeatherForecast>(weatherForecasts, true, TimeHelper.MessageSuccess);
+            return new Result<FiveDaysForecastResult>(weatherForecasts, true, TimeHelper.MessageSuccess);
         }
 
-        public static Result<WeatherDaily> GetWeatherDaily(JObject response)
+        public static Result<SixteenDaysForecastResult> GetWeatherDaily(JObject response)
         {
             var error = GetServerErrorFromResponse(response);
             if (!String.IsNullOrEmpty(error))
-                return new Result<WeatherDaily>(null, false, error);
+                return new Result<SixteenDaysForecastResult>(null, false, error);
 
-            var weatherDailies = new List<WeatherDaily>();
+            var weatherDailies = new List<SixteenDaysForecastResult>();
 
             var responseItems = JArray.Parse(response["list"].ToString());
             foreach (var item in responseItems)
             {
-                var weatherDaily = new WeatherDaily();
+                var weatherDaily = new SixteenDaysForecastResult();
                 if (response["city"] != null)
                 {
                     weatherDaily.City = Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(response["city"]["name"])));
@@ -151,7 +151,7 @@ namespace WeatherNet.Util.Data
                 weatherDailies.Add(weatherDaily);
             }
 
-            return new Result<WeatherDaily>(weatherDailies, true, TimeHelper.MessageSuccess);
+            return new Result<SixteenDaysForecastResult>(weatherDailies, true, TimeHelper.MessageSuccess);
         }
 
         public static string GetServerErrorFromResponse(JObject response)

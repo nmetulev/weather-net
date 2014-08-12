@@ -45,22 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Daily.cs" />
-    <Compile Include="Forecast.cs" />
-    <Compile Include="Current.cs" />
+    <Compile Include="ClientSettings.cs" />
+    <Compile Include="Clients\SixteenDaysForecast.cs" />
+    <Compile Include="Clients\FiveDaysForecast.cs" />
+    <Compile Include="Clients\CurrentWeather.cs" />
     <Compile Include="Model\Result.cs" />
     <Compile Include="Util\Api\ApiClient.cs" />
     <Compile Include="Util\Data\Deserializer.cs" />
     <Compile Include="Util\Data\TimeHelper.cs" />
-    <Compile Include="WeatherNet.cs" />
-    <Compile Include="Model\WeatherCurrent.cs" />
-    <Compile Include="Model\WeatherDaily.cs" />
-    <Compile Include="Model\WeatherForecast.cs" />
-    <Compile Include="Model\Weather.cs" />
+    <Compile Include="Model\CurrentWeatherResult.cs" />
+    <Compile Include="Model\SixteenDaysForecastResult.cs" />
+    <Compile Include="Model\FiveDaysForecastResult.cs" />
+    <Compile Include="Model\WeatherResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

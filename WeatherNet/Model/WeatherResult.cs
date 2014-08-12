@@ -9,7 +9,7 @@ namespace WeatherNet.Model
     /// <summary>
     ///     General weather result type
     /// </summary>
-    public abstract class Weather
+    public abstract class WeatherResult
     {
         /// <summary>
         ///     Time of data receiving in GMT.
@@ -32,12 +32,12 @@ namespace WeatherNet.Model
         public int CityId { get; set; }
 
         /// <summary>
-        ///     Weather title.
+        ///     WeatherResult title.
         /// </summary>
         public String Title { get; set; }
 
         /// <summary>
-        ///     Weather description.
+        ///     WeatherResult description.
         /// </summary>
         public String Description { get; set; }
 
