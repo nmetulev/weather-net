@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Weathernet by mlars</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Weathernet</h1>
+        <p>A .Net client for Open Weather Map API.</p>
+
+        <p class="view"><a href="https://github.com/mlars/WeatherNet">View the Project on GitHub <small>mlars/WeatherNet</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mlars/WeatherNet/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mlars/WeatherNet/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mlars/WeatherNet">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>A simple client for <a href="http://openweathermap.org/">Open Weather Map API</a> written in .NET C# 4.0</p>
+
+<h4>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h4>
+
+<ul>
+<li><p>OpenWeatherMap Api 2.5</p></li>
+<li><p>Search by city name, geographic coordinates or city ID</p></li>
+<li><p>Multiple language and units of measure</p></li>
+</ul><p>Types of weather data supported:</p>
+
+<ul>
+<li>Current weather</li>
+<li>5 days forecsat (every 3 hours)</li>
+<li>16 days forecast (daily)</li>
+</ul><h4>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h4>
+
+<div class="highlight highlight-c#"><pre><span class="kt">var</span> <span class="n">result</span> <span class="p">=</span>  <span class="n">CurrentWeather</span><span class="p">.</span><span class="n">GetByCityName</span><span class="p">(</span><span class="s">"Stockholm"</span><span class="p">,</span> <span class="s">"Sweden"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">,</span> <span class="s">"metric"</span><span class="p">);</span>
+</pre></div>
+
+<p>Additional usage examples included in the test project.</p>
+
+<h4>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h4>
+
+<ul>
+<li>JSON.net</li>
+</ul><h4>
+<a name="nuget-package" class="anchor" href="#nuget-package"><span class="octicon octicon-link"></span></a>Nuget package</h4>
+
+<p>Available at <a href="https://www.nuget.org/packages/WeatherNet">https://www.nuget.org/packages/WeatherNet</a></p>
+
+<h4>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h4>
+
+<p>This bundle is under the MIT license. For the full copyright and license information, please view the LICENSE file that was distributed with this source code.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mlars">mlars</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
