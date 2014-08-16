@@ -1,17 +1,26 @@
 A simple client for [Open Weather Map API] (http://openweathermap.org/) written in .NET C# 4.0
 
 ####Features
-Search by city name, geographic coordinates and city ID.
+
+- OpenWeatherMap Api 2.5
+
+- Search by city name, geographic coordinates or city ID. 
+
+- Multiple language and units of measure
 
 Types of weather data supported:
 
-- Current Weather.
-- 3 hours Forecast (available for 5 days)
-- Daily Forecast (available for 16 days)
+- Current weather.
+- 5 days forecsat (every 3 hours)
+- 16 days forecast (daily)
+
 
 
 ####Usage
-Usage examples are included in the Unit Test Project.
+```c#
+var result =  CurrentWeather.GetByCityName("Stockholm", "Sweden", "en", "metric");
+```
+Additional usage examples included in the test project.
 
 ####Dependencies
 * JSON.net
@@ -21,7 +30,6 @@ Available at [https://www.nuget.org/packages/WeatherNet](https://www.nuget.org/p
 
 ####License
 This bundle is under the MIT license. For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
-
 
 
 
