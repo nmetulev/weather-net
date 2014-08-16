@@ -4,13 +4,13 @@ A simple client for [Open Weather Map API] (http://openweathermap.org/) written 
 
 - OpenWeatherMap Api 2.5
 
-- Search by city name, geographic coordinates or city ID. 
+- Search by city name, geographic coordinates or city ID
 
 - Multiple language and units of measure
 
 Types of weather data supported:
 
-- Current weather.
+- Current weather
 - 5 days forecsat (every 3 hours)
 - 16 days forecast (daily)
 
