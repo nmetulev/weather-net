@@ -1,0 +1,17 @@
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\WeatherNet.UWP.csprojResolveAssemblyReference.cache
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\bin\Debug\WeatherNet.UWP.dll
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\bin\Debug\WeatherNet.UWP.pdb
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\bin\Debug\WeatherNet.UWP.pri
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\WeatherNet.UWP.dll
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\WeatherNet.UWP.pdb
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\priconfig.xml
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\priconfig.xml.intermediate
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\layout.resfiles
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\layout.resfiles.intermediate
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\resources.resfiles
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\resources.resfiles.intermediate
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\pri.resfiles
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\pri.resfiles.intermediate
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\qualifiers.txt
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Nikola\source\weather-net\WeatherNet.UWP\obj\Debug\MultipleQualifiersPerDimensionFound.txt
