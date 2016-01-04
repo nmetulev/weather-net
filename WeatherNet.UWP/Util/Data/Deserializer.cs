@@ -34,20 +34,20 @@ namespace WeatherNet.Util.Data
 
             if (response["main"] != null)
             {
-                weatherCurrent.Temp = Convert.ToDouble(response["main"]["temp"]);
-                weatherCurrent.TempMax = Convert.ToDouble(response["main"]["temp_max"]);
-                weatherCurrent.TempMin = Convert.ToDouble(response["main"]["temp_min"]);
-                weatherCurrent.Humidity = Convert.ToDouble(response["main"]["humidity"]);
+                weatherCurrent.Temp = response["main"].Value<double>("temp");
+                weatherCurrent.TempMax = response["main"].Value<double>("temp_max");
+                weatherCurrent.TempMin = response["main"].Value<double>("temp_min");
+                weatherCurrent.Humidity = response["main"].Value<double>("humidity");
             }
 
             if (response["wind"] != null)
             {
-                weatherCurrent.WindSpeed = Convert.ToDouble(response["wind"]["speed"]);
+                weatherCurrent.WindSpeed = response["wind"].Value<double>("speed");
             }
 
             weatherCurrent.Date = DateTime.UtcNow;
             weatherCurrent.City = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(Convert.ToString(response["name"])));
-            weatherCurrent.CityId = Convert.ToInt32(response["id"]);
+            weatherCurrent.CityId = response.Value<Int32>("id");
 
             return new SingleResult<CurrentWeatherResult>(weatherCurrent, true, TimeHelper.MessageSuccess);
         }
